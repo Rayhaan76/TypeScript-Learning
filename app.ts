@@ -1,27 +1,31 @@
-// const person: {
-//     name: string;
-//     age: number;
-// } = {
-const person:{
-    name: string;
-    age: number;
-    hobbies: string[];
-    role: [number, string];
-} = {
-    name : 'John',
-    age: 30,
-    hobbies : ['Sports', 'Cooking'],
-    role: [2, 'author']
+type Combinable = string | number;
+type ConversionDescriptor = 'as-number' | 'as-text'
+
+function combine (
+  input1: Combinable,
+  input2: Combinable,
+  resultConversion: ConversionDescriptor
+    ) {
+    let result;
+    if (typeof input1 ==='number' && typeof input2 ==='number') {
+        result = input1 + input2;
+    } else {
+        result = input1.toString() + input2.toString();
+    }
+    //return result;
+    
+    if (resultConversion === 'as-number') {
+        return +result;
+    } else {
+        return result.toString();
+    }
 }
 
-// person.role[1] = 10;
-// person.role.push('admin');
+const combinedAges = combine(30,26, 'as-number');
+console.log(combinedAges);
 
-let favoriteActivites: string[];
-favoriteActivites = ['sports'];
+const combinedStringAges = combine('30', '26', 'as-number');
+console.log(combinedStringAges);
 
-console.log(person.role);
-
-for (const hobby of person.hobbies) {
-    console.log(hobby.toUpperCase());
-}
+const combinedNames = combine('Max', 'Anna', 'as-text');
+console.log(combinedNames);

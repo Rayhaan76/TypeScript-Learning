@@ -6,3 +6,7 @@ Types:
     object
     array
     tuple [1,2]
+    enum 
+    any
+    literal
+    
