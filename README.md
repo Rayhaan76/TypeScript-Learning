@@ -9,4 +9,4 @@ Types:
     enum 
     any
     literal
-    
+    unknown
